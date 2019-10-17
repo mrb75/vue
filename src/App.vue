@@ -1,14 +1,13 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-    <Test disable="tex" :msg="txt" :func="change" />
+    <Test  :disable="tex" :msg="txt" :func="change" />
   </div>
 </template>
 
 <script>
 import HelloWorld from "./components/HelloWorld.vue";
 import Test from "./components/Test.vue";
+import "./assets/css/bootstrap.min.css";
 
 export default {
   name: "app",
@@ -18,13 +17,18 @@ export default {
   },
   data: function() {
     return {
-      txt: "ggggg"
+      txt: "ggggg",
+      tex: [{1:"one"},{1:"two"}],
     };
   },
   methods: {
+    updated(){
+      console.log("updated");
+    },
     change() {
       this.txt = Math.random().toString();
-      console.log("test");
+      let val=Math.pow((this.tex.length+1),2);
+      this.tex.push({"1":val.toString()});
     }
   }
 };
