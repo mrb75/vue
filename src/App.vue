@@ -21,16 +21,39 @@ export default {
     };
   },
   methods: {
-    updated(){
-      console.log("updated");
-    },
     change() {
       this.txt = Math.random().toString();
       let val=Math.pow((this.tex.length+1),2);
       this.tex.push({"1":val.toString()});
     }
-  }
+  },
+  //lifeCycle
+   beforeCreate(){
+    console.log("beforeCreate");
+  },
+  created(){
+    console.log("created");
+  },
+  beforeMount(){
+    console.log("beforeMount");
+  },
+  mounted(){
+    console.log("mounted");
+  },
+  beforeUpdate(){
+    console.log("beforeUpdate");
+  },
+  updated(){
+      console.log("updated");
+    },
+  beforeDestroy(){
+    console.log("beforeDestroy");
+  },
+  destroyed(){
+    console.log("destroyed");
+  },
 };
+
 </script>
 
 <style>
