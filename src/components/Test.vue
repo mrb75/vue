@@ -3,9 +3,8 @@
         <p v-for="item in disable" :key="item">
             {{item}}
         </p>
-        <input v-model="message">
-        <p>{{message}}</p>
-        <button @click="func">test</button>
+        <input v-model="msg">
+        <button @click="func">{{msg}}</button>
     </div>
 </template>
 

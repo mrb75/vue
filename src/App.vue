@@ -2,7 +2,7 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-    <Test disable="tex"  v-bind:func="change" />
+    <Test disable="tex" :msg="txt" :func="change" />
   </div>
   
 </template>
@@ -17,8 +17,14 @@ export default {
     HelloWorld,
     Test
   },
+  data:function(){
+    return{
+    txt:"ggggg",
+    }
+  },
   methods:{
     change(){
+      this.txt=Math.random().toString();
       console.log("test");
       }
   }
