@@ -2,7 +2,7 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-    <Test func="change" disable="tex"  msg="<a href='http://google.com'>aaaaa</a>"/>
+    <Test disable="tex"  v-bind:func="change" />
   </div>
   
 </template>
@@ -19,8 +19,7 @@ export default {
   },
   methods:{
     change(){
-      this.text={"1":1,"2":2};
-      Test.disabled=this.text
+      console.log("test");
       }
   }
 }
