@@ -8,7 +8,6 @@
 import HelloWorld from "./components/HelloWorld.vue";
 import Test from "./components/Test.vue";
 import "./assets/css/bootstrap.min.css";
-
 export default {
   name: "app",
   components: {
