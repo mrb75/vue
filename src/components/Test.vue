@@ -18,7 +18,7 @@ export default {
         msg:String,
         disable:String,
         func:Function,
-    }
+    },
 }
 </script>
 
