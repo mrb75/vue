@@ -32,7 +32,6 @@ export default {
     }
   }
 };
-let text = 1;
 </script>
 
 <style>
