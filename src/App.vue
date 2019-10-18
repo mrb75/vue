@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Test :form="form"  :disable="tex" :msg="txt" :func="change" />
+    <Test :form="form" :disable="tex" :msg="txt" :func="change" />
   </div>
 </template>
 
@@ -10,49 +10,63 @@ import "./assets/css/bootstrap.min.css";
 export default {
   name: "app",
   components: {
-    Test,
+    Test
   },
   data: function() {
     return {
       txt: "ggggg",
-      tex: [{1:"one"},{1:"two"}],
-      form: [{"name":"title","type":"text","placeHolder":"title","lable":"title","error":"error"},{"name":"news","type":"checkbox","placeHolder":"title","lable":"news","error":"error2"},]
+      tex: [{ 1: "one" }, { 1: "two" }],
+      form: [
+        {
+          name: "title",
+          type: "text",
+          placeHolder: "title",
+          lable: "title",
+          error: "error"
+        },
+        {
+          name: "news",
+          type: "checkbox",
+          placeHolder: "title",
+          lable: "news",
+          error: "error2"
+        }
+      ]
     };
   },
   methods: {
     change() {
       this.txt = Math.random().toString();
-      let val=Math.pow((this.tex.length+1),2);
-      this.tex.push({"1":val.toString()});
+      let val = Math.pow(this.tex.length + 1, 2);
+      this.tex.push({ "1": val.toString() });
     }
   },
   //lifeCycle
-   beforeCreate(){
+  beforeCreate() {
     console.log("beforeCreate");
   },
-  created(){
+  created() {
     console.log("created");
   },
-  beforeMount(){
+  beforeMount() {
     console.log("beforeMount");
   },
-  mounted(){
+  mounted() {
     console.log("mounted");
   },
-  beforeUpdate(){
+  beforeUpdate() {
     console.log("beforeUpdate");
   },
-  updated(){
-      console.log("updated");
-    },
-  beforeDestroy(){
+  updated() {
+    console.log("updated");
+  },
+  beforeDestroy() {
     console.log("beforeDestroy");
   },
-  destroyed(){
+  destroyed() {
     console.log("destroyed");
-  },
+  }
 };
-
 </script>
 
 <style>

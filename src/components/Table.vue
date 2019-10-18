@@ -24,9 +24,8 @@ export default {
     return {
       message: "k"
     };
-  },
+  }
 };
 </script>
 <style>
-
 </style>

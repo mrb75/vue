@@ -29,15 +29,13 @@
 </template>
 <script>
 export default {
-    name:"Form",
-    data: function(){
-        return{
-
-        }
-    },
-    props:{
-        inputVal:Array,
-        buttonText:String,
-    },
-}
+  name: "Form",
+  data: function() {
+    return {};
+  },
+  props: {
+    inputVal: Array,
+    buttonText: String
+  }
+};
 </script>

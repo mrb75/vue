@@ -14,20 +14,20 @@ export default {
   name: "Test",
   components: {
     Table,
-    Form
+    Form,
   },
   data: function() {
     return {
       message: "k",
       disable: this.disable,
-      form: this.from,
+      form: this.from
     };
   },
   props: {
     msg: String,
     disable: Array,
     func: Function,
-    form:Array, 
+    form: Array
   }
 };
 </script>
