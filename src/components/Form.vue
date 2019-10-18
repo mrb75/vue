@@ -35,7 +35,7 @@ export default {
   },
   props: {
     inputVal: Array,
-    buttonText: String
+    buttonText: String,
   }
 };
 </script>
