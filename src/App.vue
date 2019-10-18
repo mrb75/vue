@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Test  :disable="tex" :msg="txt" :func="change" />
+    <Test :form="form"  :disable="tex" :msg="txt" :func="change" />
   </div>
 </template>
 
@@ -10,12 +10,13 @@ import "./assets/css/bootstrap.min.css";
 export default {
   name: "app",
   components: {
-    Test
+    Test,
   },
   data: function() {
     return {
       txt: "ggggg",
       tex: [{1:"one"},{1:"two"}],
+      form: [{"name":"title","type":"text","placeHolder":"title","lable":"title","error":"error"},{"name":"news","type":"checkbox","placeHolder":"title","lable":"news","error":"error2"},]
     };
   },
   methods: {
