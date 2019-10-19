@@ -3,7 +3,7 @@
     <h4>{{msg}}</h4>
     <Table :disable="disable" />
     <Form :inputVal="form" buttonText="ثبت" />
-    <a class="btn btn-success mt-5 text-white" @click="func">افزودن</a>
+    <a  class="btn btn-success mt-5 text-white" :class="{'btn-danger':danger}" @click="func">افزودن</a>
   </div>
 </template>
 
@@ -27,7 +27,8 @@ export default {
     msg: String,
     disable: Array,
     func: Function,
-    form: Array
+    form: Array,
+    danger:Boolean,
   }
 };
 </script>
