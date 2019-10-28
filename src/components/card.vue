@@ -1,6 +1,6 @@
 <template>
-<div class="card ml-2 mt-5 mb-5" style="width: 18rem;">
-  <img v-bind:src="imgSrc" class="card-img-top" alt="vue">
+<div class="card ml-1 mt-5 mb-5" style="width: 18rem;">
+  <img :src="imgSrc" class="card-img-top" alt="vue">
   <div class="card-body">
     <h5 class="card-title">{{cardTitle}}</h5>
     <p class="card-text">{{cardDescription}}</p>
