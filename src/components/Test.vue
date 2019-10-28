@@ -1,9 +1,11 @@
 <template>
   <div class="container-fluid col-md-6">
     <h4>{{msg}}</h4>
-    <Table :disable="disable" />
+    <slot></slot>
+    <Table :multiColor="multiColor" :removeFunc="removeFunc" :disable="disable" />
     <Form :inputVal="form" buttonText="ثبت" />
-    <a  class="btn btn-success mt-5 text-white" :class="{'btn-danger':danger}" @click="func">افزودن</a>
+    <a  class="btn btn-success mt-5 text-white" :class="{'btn-warning':danger}" @click="func">افزودن</a>
+    
   </div>
 </template>
 
@@ -20,7 +22,8 @@ export default {
     return {
       message: "k",
       disable: this.disable,
-      form: this.from
+      form: this.from,
+      removeFunc:this.removeFunc,
     };
   },
   props: {
@@ -29,6 +32,8 @@ export default {
     func: Function,
     form: Array,
     danger:Boolean,
+    removeFunc: Function,
+    multiColor: Boolean,
   }
 };
 </script>

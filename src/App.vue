@@ -1,19 +1,29 @@
 <template>
   <div id="app">
-    <Test :danger="danger" :form="form" :disable="tex" :msg="txt" :func="change" />
+    <Test :multiColor="multiColor" :removeFunc="remove" :danger="danger" :form="form" :disable="tex" :msg="txt" :func="change">
+    <a>{{txt}}</a>
+    </Test>
+    <div class="container">
+      <div class="row">
+      <card v-for="(item) in card"  :key="item"
+       :cardTitle="item['cardTitle']" :cardDescription="item['cardDescription']" buttonText="ادامه" :imgSrc="item['imageSrc']" :link="item['link']" />
+    </div>
+    </div>
   </div>
 </template>
 
 <script>
 import Test from "./components/Test.vue";
+import card from "./components/card.vue"
 import "./assets/css/bootstrap.min.css";
-import VueSweetAlert2 from 'vue-sweetalert2';
-import "./assets/css/sweetalert2.min.css"
+import "./assets/css/bootstrap-rtl.css";
+import "./assets/css/sweetalert2.min.css";
 import Swal from 'sweetalert2';
 export default {
   name: "app",
   components: {
-    Test
+    Test,
+    card,
   },
   data: function() {
     return {
@@ -37,6 +47,12 @@ export default {
       ],
       danger:false,
       alertType:"success",
+      multiColor:true,
+      card:[{cardTitle:'testTitle',cardDescription:'testDescription',imageSrc:'../assets/logo.png',link:'http://xvideos.com'},
+      {cardTitle:'testTitle',cardDescription:'testDescription',imageSrc:'assets/images/logo.png',link:'http://xvideos.com'},
+      {cardTitle:'testTitle',cardDescription:'testDescription',imageSrc:'../assets/logo.png',link:'http://xvideos.com'},
+      {cardTitle:'testTitle',cardDescription:'testDescription',imageSrc:'../assets/logo.png',link:'http://xvideos.com'},
+      {cardTitle:'testTitle',cardDescription:'testDescription',imageSrc:'../assets/logo.png',link:'http://xvideos.com'},],
     };
   },
   methods: {
@@ -54,31 +70,56 @@ export default {
         this.danger=true;
         this.alertType="warning";
       }
-    }
+    },
+    remove(idx){
+      let self=this;
+      // eslint-disable-next-line
+      swal("پایه ای بزنیم سوشیو فردا؟", {
+                        dangerMode: true,
+                          buttons: true,
+                        }).then(function(dismiss) {
+                           if(dismiss){
+                           self.tex.splice(idx,1);
+                           }
+                           if(self.danger && self.tex.length<5){
+                              self.danger=false;
+                              self.alertType="success"
+                            }
+                        });
+            
+                }
   },
   //lifeCycle
   beforeCreate() {
+    // eslint-disable-next-line
     console.log("beforeCreate");
   },
   created() {
+    // eslint-disable-next-line
     console.log("created");
   },
   beforeMount() {
+    // eslint-disable-next-line
     console.log("beforeMount");
   },
   mounted() {
+    // eslint-disable-next-line
     console.log("mounted");
   },
   beforeUpdate() {
+    // eslint-disable-next-line
     console.log("beforeUpdate");
   },
   updated() {
+    // eslint-disable-next-line
     console.log("updated");
   },
   beforeDestroy() {
+    // eslint-disable-next-line
     console.log("beforeDestroy");
   },
   destroyed() {
+    // eslint-disable-next-line
     console.log("destroyed");
   }
 };
