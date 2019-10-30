@@ -3,9 +3,8 @@
 ## Project Description
 ```
 this is my test project for learning vuejs framework with vue-cli
-
-## Project setup
 ```
+## Project setup
 ```
 npm install
 ```
