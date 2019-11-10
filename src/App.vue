@@ -5,7 +5,7 @@
     </Test>
     <container_row_6>
       <card v-for="(item) in card"  :key="item"
-       :cardTitle="item['cardTitle']" :cardDescription="item['cardDescription']" buttonText="ادامه" :imgSrc="item['imageSrc']" :link="item['link']" />
+       :cardTitle="item['cardTitle']" :cardDescription="item['cardDescription']" :buttonText="getCardButtonText" :imgSrc="item['imageSrc']" :link="item['link']" />
     </container_row_6>
   </div>
 </template>
@@ -17,7 +17,9 @@ import "./assets/css/bootstrap.min.css";
 import "./assets/css/bootstrap-rtl.css";
 import "./assets/css/sweetalert2.min.css";
 import container_row_6 from "./wrapper/container_row_6.vue"
-import Swal from 'sweetalert2';
+import Swal from 'sweetalert2'
+import {mapState} from 'vuex'
+
 export default {
   name: "app",
   components: {
@@ -25,9 +27,15 @@ export default {
     card,
     container_row_6,
   },
+  computed:mapState({
+      getCardButtonText:state=>state.text,
+    })
+  ,
   data: function() {
     return {
-      txt: "ggggg",
+      store:this.$store,
+      txt: this.getCardButtonText,
+      cardButtonText:this.count,
       tex: [{ 1: "one" }, { 1: "two" }],
       form: [
         {
@@ -49,12 +57,13 @@ export default {
       alertType:"success",
       multiColor:true,
       card:[{cardTitle:'testTitle',cardDescription:'testDescription',imageSrc:require('./assets/logo.png'),link:'http://mrb76.com'},
-      {cardTitle:'testTitle',cardDescription:'testDescription',imageSrc:require('./assets/logo.png'),link:'http://mrb76.com'},
-      {cardTitle:'testTitle',cardDescription:'testDescription',imageSrc:require('./assets/logo.png'),link:'http://mrb76.com'},
-      {cardTitle:'testTitle',cardDescription:'testDescription',imageSrc:require('./assets/logo.png'),link:'http://mrb76.com'},
-      {cardTitle:'testTitle',cardDescription:'testDescription',imageSrc:require('./assets/logo.png'),link:'http://mrb76.com'},],
+            {cardTitle:'testTitle',cardDescription:'testDescription',imageSrc:require('./assets/logo.png'),link:'http://mrb76.com'},
+            {cardTitle:'testTitle',cardDescription:'testDescription',imageSrc:require('./assets/logo.png'),link:'http://mrb76.com'},
+            {cardTitle:'testTitle',cardDescription:'testDescription',imageSrc:require('./assets/logo.png'),link:'http://mrb76.com'},
+            {cardTitle:'testTitle',cardDescription:'testDescription',imageSrc:require('./assets/logo.png'),link:'http://mrb76.com'},],
     };
   },
+  
   methods: {
     change() {
       Swal({
