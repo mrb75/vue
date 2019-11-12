@@ -1,7 +1,9 @@
 <template>
   <div id="app">
+    <span>{{this.store.getters.getAli.age}}</span>
     <Test :multiColor="multiColor" :removeFunc="remove" :danger="danger" :form="form" :disable="tex" :msg="txt" :func="change">
     <a>{{txt}}</a>
+    
     </Test>
     <container_row_6>
       <card v-for="(item) in card"  :key="item"
@@ -18,7 +20,7 @@ import "./assets/css/bootstrap-rtl.css";
 import "./assets/css/sweetalert2.min.css";
 import container_row_6 from "./wrapper/container_row_6.vue"
 import Swal from 'sweetalert2'
-import {mapState} from 'vuex'
+import {mapState,mapGetters} from 'vuex'
 
 export default {
   name: "app",
@@ -27,9 +29,9 @@ export default {
     card,
     container_row_6,
   },
-  computed:mapState({
+  computed:[mapState({
       getCardButtonText:state=>state.text,
-    })
+    })]
   ,
   data: function() {
     return {
@@ -66,6 +68,9 @@ export default {
   
   methods: {
     change() {
+      this.store.dispatch("inc");
+      //this.store.commit("increament")
+      console.log(this.store.getters.getAli)
       Swal({
         title:"افزوده شد.",
         text:"افزوده شدش",
