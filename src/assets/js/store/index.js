@@ -2,8 +2,22 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 Vue.use(Vuex)
+const moduleA={
+    state:{
+        text:"daramad sarshar",
+    },getters:{
+
+    },mutations:{
+
+    },actions:{
+
+    }
+}
 
 export default new Vuex.Store({
+    modules: {
+        a:moduleA,
+    },
     state: {
         text: "text",
         texts: [{ name: "ali", age: 10 }, { name: "mohammad", age: 16 }],

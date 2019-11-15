@@ -2,12 +2,12 @@
   <div id="app">
     <span>{{this.store.getters.getAli.age}}</span>
     <Test :multiColor="multiColor" :removeFunc="remove" :danger="danger" :form="form" :disable="tex" :msg="txt" :func="change">
-    <a>{{txt}}</a>
+    <a>{{this.store.state.text}}</a>
     
     </Test>
     <container_row_6>
       <card v-for="(item) in card"  :key="item"
-       :cardTitle="item['cardTitle']" :cardDescription="item['cardDescription']" :buttonText="getCardButtonText" :imgSrc="item['imageSrc']" :link="item['link']" />
+       :cardTitle="item['cardTitle']" :cardDescription="item['cardDescription']" :buttonText="getATextVal" :imgSrc="item['imageSrc']" :link="item['link']" />
     </container_row_6>
   </div>
 </template>
@@ -20,7 +20,7 @@ import "./assets/css/bootstrap-rtl.css";
 import "./assets/css/sweetalert2.min.css";
 import container_row_6 from "./wrapper/container_row_6.vue"
 import Swal from 'sweetalert2'
-import {mapState,mapGetters} from 'vuex'
+import {mapState} from 'vuex'
 
 export default {
   name: "app",
@@ -29,9 +29,10 @@ export default {
     card,
     container_row_6,
   },
-  computed:[mapState({
+  computed:mapState({
       getCardButtonText:state=>state.text,
-    })]
+      getATextVal:state=>state.a.text,
+    })
   ,
   data: function() {
     return {
